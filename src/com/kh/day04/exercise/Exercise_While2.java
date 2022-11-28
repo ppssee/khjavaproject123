@@ -15,7 +15,6 @@ public class Exercise_While2 {
 		int num = sc.nextInt();
 		
 		
-		
 		if(1 <= num && num <= 9 ) {
 			int i = 1;
 			while(i<=9) {
