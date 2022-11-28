@@ -13,7 +13,7 @@ public class Exercise_While3 {
 		//	정수 하나 입력 : -1
 		//	입력하신 수의 합은 : 14
 
-   
+      
 		Scanner sc = new Scanner(System.in);
 
 		int sum = 0;
