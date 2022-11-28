@@ -13,11 +13,11 @@ public class Exercise_While2 {
 
 		System.out.print("정수를 입력하세요:");
 		int num = sc.nextInt();
-		int i = 1;
+		
 		
 		
 		if(1 <= num && num <= 9 ) {
-
+			int i = 1;
 			while(i<=9) {
 				System.out.println(num + " * " + i + " = " + num*i);
 				i++;
