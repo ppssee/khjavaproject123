@@ -9,9 +9,10 @@ public class Exercise_Random1 {
 		// 동전 앞뒤 맞추기!!
 		Scanner sc = new Scanner(System.in);
 		Random rand = new Random();
+		
 		while(true) {
 			System.out.println("====== 동전 앞 뒤 맞추기 ======= ");
-			System.out.print("숫자를 입력해주세요 (1.앞면 / 2.뒷면) : ");
+			System.out.print("숫자를 입력해주세요 (1.앞면 / 2.뒷면 / 3. 종료) : ");
 			int choice = sc.nextInt();
 
 			int computer = rand.nextInt(2)+1;
@@ -22,6 +23,10 @@ public class Exercise_Random1 {
 
 			else if(choice ==1 || choice == 2) {
 				System.out.println("틀렸습니다.");
+			}
+			
+			else if(choice ==3) {
+				break;
 			}
 
 			else {
