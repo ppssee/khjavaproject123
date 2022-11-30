@@ -118,7 +118,24 @@ public class Exercise_Array {
 
 	}
 
+	public void exercise6()	{   // forEach문 , 인덱스 값으로 뭘 하지않고 처음부터 끝까지 반복이 필요할 때.
+		int[] nums = { 1, 2, 3, 4, 5 };
+		
+		for (int a : nums) {
+			System.out.print(a + " ");
+		}
 	
+		for(int i=0; i<nums.length; i++) {
+			System.out.print(nums[i]+ " ");
+		}
+	}
+	
+	public void exercise7() {
+		String[] fruits = { "딸기", "복숭아", " 포도", "체리", "망고"};
+		for(String str : fruits) {
+			System.out.print(str);
+		}
+	}
 	
 
 

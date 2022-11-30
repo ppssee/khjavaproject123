@@ -13,7 +13,7 @@ public class Run {
 	//	exArray.exercise1();
 	//	exArray.exercise2();
 	//	exArray.exercise3();
-		exArray.exercise5();
+		exArray.exercise7();
 	}
 	
 }

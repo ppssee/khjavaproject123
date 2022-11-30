@@ -15,6 +15,7 @@ public class Exam_SortSelect {
 		// 데이터 양이 많을 때 급격한 성능 저하를 보임.
 		// 배열의 N번 인덱스값을 N+1번 ~ 마지막 인덱스까지 비교함.
 
+		
 		int[] arrs = {2, 5, 4, 1, 3};
 		int min;  // 배열의 제일 작은 숫자의 인덱스 값 저장.
 		for(int i =0; i<arrs.length; i++) {
