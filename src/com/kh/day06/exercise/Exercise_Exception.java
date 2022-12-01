@@ -44,11 +44,11 @@ public class Exercise_Exception {
 		int num = 0;
 		for(int i = 0; i<3; i++) {
 			System.out.print(i + ">>");
-			try {
-				num = sc.nextInt();
+			try {	
+				num = sc.nextInt();                 // 입력은 메서드가 실행된 후 버퍼에 내용이 있는지 확인하고 그에 맞게 실행함. 처음이니 아무것도 없음.
 			}catch(InputMismatchException e) {
 				System.out.println("정수가 아닙니다.");
-				sc.next(); // 입력한 R을 제거
+				sc.next(); // 입력한 R을 제거         // 버퍼를 비우지 않을경우 버퍼엔 그대로 문자가 남아있기 때문에 반복할때마다 예외가 발생함.
 				i--;	   // 1로 다시 가도록 -1해줌, i++를 만남
 				continue;   // sum+= num; 을 스킵.
 			}
