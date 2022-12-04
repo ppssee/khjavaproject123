@@ -96,7 +96,3 @@ public class StudentFunction {
 	public void printException() {}
 	
 }
-//public static void clearScreen() {
-//    for (int i = 0; i < 80; i++)
-//      System.out.println("");
-//  }

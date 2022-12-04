@@ -21,7 +21,7 @@ public class HorseRacingFunction {
 
 
 	public void startMenu() { 		// 시작 메뉴
-		clearScreen();
+		
 		System.out.println("================== 경마 프로그램 ==================");
 		System.out.println("기본 경주마를 생성합니다.");
 		System.out.println("사용하실 경주마의 정보를 입력해주세요.");
