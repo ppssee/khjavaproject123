@@ -13,6 +13,8 @@ public class InstatnceofEx {
 		if(p instanceof Professor)
 			System.out.println("Professor¿‘¥œ¥Ÿ!");
 		
+		
+		
 	}
 	
 	public static void main(String[] args) {

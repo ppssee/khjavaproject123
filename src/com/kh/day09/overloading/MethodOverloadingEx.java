@@ -1,4 +1,4 @@
-package com.kh.day09.overriding;
+package com.kh.day09.overloading;
 
 class Weapon{
 	protected int fire() {
