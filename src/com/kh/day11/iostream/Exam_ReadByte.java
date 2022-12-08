@@ -13,10 +13,11 @@ public class Exam_ReadByte {
 			int readByteNo;
 			String data = "";
 
-			byte[] readBytes = new byte[3]; 	// [3] 대신 is.available() 사용하면 총 길이 값 저장됨.	
+			byte[] readBytes = new byte[2]; 	// [3] 대신 is.available() 사용하면 총 길이 값 저장됨.	
 
 			while((readByteNo = is.read(readBytes)) != -1) {
 				//	readByteNo = is.read(readBytes); 	//  readBytes의 길이 값
+				
 				data += new String(readBytes, 0, readByteNo);  // String(Byte[] byte, int offset, int length)
 				// 문자열생성( 바이트배열, 시작위치, 길이 )
 			}

@@ -13,6 +13,7 @@ public class Exam_Write {
 		try {
 			OutputStream os = new FileOutputStream("src/iostream/outputStream.txt");
 			byte[] data = "Hello I/O".getBytes();
+			
 			for(int i=0; i<data.length; i++)
 				os.write(data[i]);		
 			os.flush();
@@ -26,5 +27,7 @@ public class Exam_Write {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
 	}
 }
