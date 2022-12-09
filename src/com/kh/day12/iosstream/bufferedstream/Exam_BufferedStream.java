@@ -15,17 +15,19 @@ public class Exam_BufferedStream {
 		
 		//파일 입력용
 		FileReader fir = null;
+		BufferedOutputStream bout = null;
 		int readChar;
 		try {
 			fir = new FileReader("C:\\img\\kh.txt");
-			// 콘솔 출력용
-			BufferedOutputStream bout = new BufferedOutputStream(System.out, 5);
-			while((readChar = fir.read()) != -1) {
-				bout.write(readChar);
+			bout = new BufferedOutputStream(System.out, 5);	  // 콘솔 출력용.
+			
+			while((readChar = fir.read()) != -1) {   // 하나씩 읽어오고
+				bout.write(readChar);   			 // 읽어온 값 출력.
 			}
 			new Scanner(System.in).nextLine();   // flush 기능을 보기 위해.
 			bout.flush();	// 버퍼 5개씩 출력하다 마지막 1개 버퍼 대기중인걸 방출.
 			bout.close();
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
