@@ -25,16 +25,36 @@ public class BaseballClient {
 			dos = new DataOutputStream(os);
 			System.out.println("게임 준비 완료");
 			
+			while(true) {
 			//값 보내기
 			System.out.print("--> ");
 			String input = sc.nextLine();
 			dos.writeUTF(input);
 			
+			//값 받기
+			String resultMsg = dis.readUTF();
+			System.out.println(resultMsg);
+			if(resultMsg.startsWith("3")) {
+				System.out.println("축하합니다. 아웃입니다!");
+				break;
+			}
 			
-			
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			try {
+				dos.close();
+				dis.close();
+				os.close();
+				is.close();
+				socket.close();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 		}
 		
 	}

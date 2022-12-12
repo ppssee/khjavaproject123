@@ -1,40 +1,36 @@
 package com.kh.day13.socket.baseball;
 import java.io.*;
 import java.net.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class BaseballServer {
+//
+//	public static int calc(int[] numbers, String Num) {
+//		StringTokenizer st = new StringTokenizer(Num, " ");
+//		if(st.countTokens() != 3) System.out.println("error");
+//		int[] readNum = new int[3];
+//		int strike = 0;
+//		int ball = 0;
+//
+//		for(int i=0; i<readNum.length; i++) {	 // 숫자 입력
+//			readNum[i] = Integer.parseInt(st.nextToken());
+//		} 
+// 
+//		for(int i=0; i<3; i++){ // for int j=0; j>3; j++
+//			for(int j=2; j<=i; j--) {
+//				if(numbers[i] == readNum[i]){
+//					strike++;// 스트라이크
+//				}
+//				else if(numbers[i] == readNum[j]) {
+//					ball++;
+//				}
+//			}
+//		}
+//		
+//		return strike;
+//	}
 
-	public static int calc(int[] numbers, String Num) {
-		StringTokenizer st = new StringTokenizer(Num, " ");
-		if(st.countTokens() != 3) System.out.println("error");
-		int[] readNum = new int[3];
-		int strike = 0;
-		int ball = 0;
-
-		for(int i=0; i<readNum.length; i++) {	 // 숫자 입력
-			readNum[i] = Integer.parseInt(st.nextToken());
-		} //        5              2         8
-		// 정답 numbers[0] , numbers[1], numbers[2]
-		// 입력 값 readNum[0] = 3
-		// 입력 값 readNum[1] = 5
-		// 입력 값 readNum[2] = 8  
-		for(int i=0; i<3; i++){ // for int j=0; j>3; j++
-			for(int j=2; j<=i; j--) {
-				if(numbers[i] == readNum[i]){
-					strike++;// 스트라이크
-				}
-				else if(numbers[i] == readNum[j]) {
-					ball++;
-				}
-			}
-		}
-		
-		return strike;
-	}
-//	numbers[0] -> readNum[0]   numbers[1] -> readNum[1]  numbers[2] -> readNum[2]
-//			   -> readNum[1]              -> readNum[2]
-//			   -> readNum[2]
 
 
 	public static void main(String[] args) {
@@ -48,11 +44,15 @@ public class BaseballServer {
 		int[] numbers = new int[3];
 		Random rand = new Random();
 		StringTokenizer st = null;
-
+		SimpleDateFormat trans = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss:SS");
+		
 		try {
 			System.out.println("서버소켓을 생성하였습니다.");
 			serverSocket = new ServerSocket(port);
 			Thread.sleep(2000);
+			
+			Date date = new Date();
+			System.out.println(trans.format(date));
 			System.out.println("클라이언트의 접속을 기다립니다.");
 			Socket socket = serverSocket.accept();
 			System.out.println("클라이언트가 접속했습니다.");
@@ -72,29 +72,57 @@ public class BaseballServer {
 			}
 			System.out.println("서버 숫자 ->" + numbers[0] + " " + numbers[1] + " " + numbers[2]);
 			System.out.println("서버 준비 완료");
-			
-			int strike = 0;
-			while(strike != 3) {
+
+
+			while(true) {
 				//값 받기
 				String readNum = dis.readUTF();
 				System.out.println("받기 : " + readNum);
-				strike = calc(numbers, readNum);
 
+				int strike = 0;
+				int ball = 0;
 				
-				// 메소드로 해결 못할것 같으면 메소드 지우고 메인으로 가져오기.
-				// 값 출력
-				// 클라이언트로 결과값 보내주기!
-				// 스트라이크가 3이면 게임 종료하기~
-
+				String[] readNums = readNum.split(" ");
+				for(int i =0; i<numbers.length; i++) {
+					for(int e=0; e<readNums.length; e++) {
+						if(numbers[i] == Integer.parseInt(readNums[e])) {
+							if(i == e) {
+								strike ++;
+							}
+							else {
+								ball++;						}
+						}
+					}
+				}
+				String result = strike + "스트라이크 " + ball + "볼";
+				System.out.println(result);
+				dos.writeUTF(result);
+				
+				if(strike == 3) {
+					System.out.println("아웃! 게임종료!");
+					break;
+				}
+				
 			}
+		}
 	
-
-		} catch (IOException e) {
+		 catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			try {
+				dos.close();
+				dis.close();
+				is.close();
+				os.close();
+				serverSocket.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 	}
