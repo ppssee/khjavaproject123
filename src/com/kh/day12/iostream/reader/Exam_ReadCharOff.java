@@ -13,11 +13,9 @@ public class Exam_ReadCharOff {
 		try {
 			reader = new FileReader("src/iostream/filereader.txt");
 			char[] cbuf = new char[3];
-			int readCharNo;
-			String data = "";
-			
 			reader.read(cbuf, 1, 2);
-			for(int i =0; i<cbuf.length; i++) {
+			
+			for(int i = 0; i<cbuf.length; i++) {
 				System.out.print(cbuf[i]);
 			}
 			
