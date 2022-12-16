@@ -16,12 +16,28 @@ public class MemberController {
 		mList.add(member);
 	}
 	
+	public void removeMember(int index) {
+		mList.remove(index);
+	}
+	
 	public List<Member> printAllMember() {   // 1. 회원 정보 전체 조회
 		return mList;
 	}
 	
 	// 같은 id가 있을 때 인덱스를 리턴
 	public int findMemberId(String memberId) {
+		for(int i=0; i < mList.size(); i++) {
+			Member mOne = mList.get(i);
+			
+			if(memberId.equals(mOne.getMemberId())) {
+				return i;
+			}
+		}
+		return -1; // 못 찾았음.
+	}
+	
+	// /////////////// 같은 id가 있을 때 인덱스를 리턴
+	public int findMemberIndex(String memberId) {
 		for(int i=0; i < mList.size(); i++) {
 			Member mOne = mList.get(i);
 			
@@ -57,7 +73,7 @@ public class MemberController {
 	
 	
 	
-	public Member memberSet(String memberId) {		// 6.
+	public Member memberSet(String memberId) {		// 5.
 		for(int i=0; i<mList.size(); i++) {
 			Member mOne = mList.get(i);
 			

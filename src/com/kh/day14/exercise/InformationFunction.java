@@ -1,6 +1,8 @@
 package com.kh.day14.exercise;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -11,6 +13,7 @@ public class InformationFunction {
 	public InformationFunction(){
 		info = new Information();
 	}
+
 	
 	public int printMenu() {
 		Scanner sc = new Scanner(System.in);

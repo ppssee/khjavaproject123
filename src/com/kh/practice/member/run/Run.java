@@ -10,6 +10,7 @@ public class Run {
 	public static void main(String[] args) {
 		MemberView view = new MemberView();
 		MemberController mCon = new MemberController();
+		
 		done :
 			while(true) {
 				int choice = view.mainMenu();
@@ -19,13 +20,13 @@ public class Run {
 					view.showAllmember(mList);
 					break;
 				case 2 : 
-					String memberId = view.inputMemberId();
+					String memberId = view.inputMemberId("조회");
 					int index = mCon.findMemberId(memberId);
 					if(index == -1) {
 						// 없습니다 view 출력.
 					}
-					Member mOne = mCon.printOneByIndex(index);
-					view.printOneById(mOne);
+					Member member0 = mCon.printOneByIndex(index);
+					view.printOneById(member0);
 					break;
 				case 3 :
 					String memberName = view.inputMemberName();
@@ -35,16 +36,26 @@ public class Run {
 					} 
 					Member mOneName = mCon.printOneByIndex(index2);
 					view.printOneByName(mOneName);
-					
 					break;
 				case 4 :   // 객체생성과 객체저장. 
-					Member member = view.inputMember();
-					mCon.registerMember(member);
+					Member member1 = view.inputMember();
+					mCon.registerMember(member1);
+					view.displaySuccess("가입이 완료됐습니다.");
 					break;
-				case 5 : 
+				case 5 :  // 회원정보 수정.
+					String memberId2 = view.inputMemberId("수정");
+					Member member2 = mCon.memberSet(memberId2);
+					int num2 = view.setMemberInfo();
+					view.setMemberInfo2(member2, num2);
 					
 					break;
-				case 6 : break;
+			
+				case 6 : 
+					memberId = view.inputMemberId("삭제");
+					int aaa = mCon.findMemberIndex(memberId);
+					mCon.removeMember(aaa);
+					view.displaySuccess("계정이 삭제됐습니다.");
+					break;
 				case 0 : break done;
 				}
 			}

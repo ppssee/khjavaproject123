@@ -38,13 +38,6 @@ public class Exam_File {
 	
 	//////////// Menu Funtion /////////////////// 
 	
-	static void insert() {}
-	
-	static void print() {}
-	
-	static void save() {}
-	
-	static void load() {}
-	
+
 	
 }

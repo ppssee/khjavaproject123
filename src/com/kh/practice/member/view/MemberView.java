@@ -68,14 +68,14 @@ public class MemberView {
 		
 	}
 	
-	public String inputMemberId() { 	  // 2.
+	public String inputMemberId(String category) { 	  // 2.
 		Scanner sc = new Scanner(System.in);
-		System.out.print("검색할 아이디 입력 : ");
+		System.out.print(category+"할 아이디 입력 : ");
 		String memberId = sc.next();
 		return memberId;
 	}
 	
-	public void showAllmember(List<Member> mList) {			// 1.
+	public void showAllmember(List<Member> mList) {			// 1. 
 		System.out.println("=== === === 회원정보 전체조회 === === ==");
 		for(Member mOne : mList) {
 			System.out.println("회원 아이디 : " + mOne.getMemberId());
@@ -106,62 +106,99 @@ public class MemberView {
 		System.out.println(mOne.toString());
 	}
 	
+	public void displaySuccess(String message) {
+		System.out.println("[처리결과] : " + message);
+	}
+	
+	public void displayError(String message) {
+		System.out.println("[오류 발생] : " + message);
+	}
 	
 	
 	
 	
 	
 	
-	public String printMemberInfoSet() {			// 6. 
+	
+	
+	
+	
+	public String printMemberInfoSet() {			// 5. 
 		Scanner sc = new Scanner(System.in);
 		System.out.print("변경할 회원의 아이디 입력 : ");
 		String memberId = sc.next();
 		return memberId;
 	}
 
-	public void setMemberInfo() {		// 6.
+	public int setMemberInfo() {		// 5.
 		Scanner sc = new Scanner(System.in);
-		bye :
-			while(true) {
-				System.out.println("변경할 정보 선택.");
-				System.out.println("1. 회원 아이디 : ");
-				System.out.println("2. 회원 이름 : " );
-				System.out.println("3. 회원 성별 : ");
-				System.out.println("4. 회원 나이 : ");
-				System.out.println("5. 회원 이메일 : ");
-				System.out.println("6. 회원 폰번호 : ");
-				System.out.println("7. 회원 주소 : ");
-				System.out.println("8. 회원 취미 : ");
-				System.out.println("0. 종료 ");
-				System.out.print("입력: ");
-				int num = sc.nextInt();
 
-				switch(num) {
-				case 1: 
-					System.out.println("1. 변경할 회원 아이디 : ");
-					break;
-				case 2: System.out.println("2. 회원 이름 : " ); break;
-				case 3: System.out.println("3. 회원 성별 : "); break;
-				case 4: break; 
-				case 5: break;
-				case 6: break;
-				case 7: break;
-				case 8: break;
-				case 0: break bye;
-				}
-			}
-		
+		System.out.println("변경할 정보 선택.");
+		System.out.println("1. 회원 아이디 ");
+		System.out.println("2. 회원 이름 " );
+		System.out.println("3. 회원 성별 ");
+		System.out.println("4. 회원 나이 ");
+		System.out.println("5. 회원 이메일 ");
+		System.out.println("6. 회원 폰번호 ");
+		System.out.println("7. 회원 주소 ");
+		System.out.println("8. 회원 취미 ");
+		System.out.println("0. 종료 ");
+		System.out.print("입력: ");
+		int num = sc.nextInt();
+
+		return num;
+
 	}
-	
+
 	public void setMemberInfo2(Member member, int num) {
-		Bye :
-		while(true) {
-			
-			
-			
+		Scanner sc = new Scanner(System.in);
+
+		switch(num) {
+		case 1: 
+			System.out.print("1. 변경할 회원 아이디 : ");
+			String memberId = sc.next();
+			member.setMemberId(memberId);
+			break;
+		case 2: 
+			System.out.print("2. 변경할 회원 이름 : " ); 
+			String memberName = sc.next();
+			member.setMemberName(memberName);
+			break;
+		case 3: 
+			System.out.print("3. 변경할 회원 성별 : "); 
+			String memberGender = sc.next();
+			member.setMemberGender(memberGender);
+			break;
+		case 4: 
+			System.out.print("4. 회원 나이 : ");
+			int memberAge = sc.nextInt();
+			member.setMemberAge(memberAge);
+			break; 
+		case 5: 
+			System.out.print("5. 회원 이메일 : ");
+			String memberEmail = sc.next();
+			member.setMemberGender(memberEmail);
+			break;
+		case 6: 
+			System.out.print("6. 회원 폰번호 : ");
+			String memberPhone = sc.next();
+			member.setMemberGender(memberPhone);
+			break;
+		case 7: 
+			System.out.print("7. 회원 주소 : ");
+			sc.nextLine();
+			String memberAddress = sc.nextLine();
+			member.setMemberGender(memberAddress);
+			break;
+		case 8: 
+			System.out.print("8. 회원 취미 : ");
+			String memberHobby = sc.next();
+			member.setMemberHobby(memberHobby);
+			break;
+		
 		}
-		
-		
+
+		System.out.println("수정이 완료됐습니다.");
 	}
 
 }

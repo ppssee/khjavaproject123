@@ -31,6 +31,7 @@ public class ChattingServer {
 			System.out.println("클라이언트의 접속을 기다리고 있습니다.");
 			Socket socket = serverSocket.accept();
 			System.out.println("클라이언트가 접속하였습니다.");
+			
 			is = socket.getInputStream();
 			os = socket.getOutputStream();
 			dis = new DataInputStream(is);

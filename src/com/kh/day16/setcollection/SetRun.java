@@ -24,7 +24,6 @@ public class SetRun {
 //		System.out.println(new Student("°­µ¿¿ø", 35, 100).hashCode());
 		
 		
-		
 //		Iterator<Student> iterator3 = set3.iterator();
 //		while(iterator3.hasNext()) {
 //			System.out.println(iterator3.next());
